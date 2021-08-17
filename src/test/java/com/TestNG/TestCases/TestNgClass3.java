@@ -11,6 +11,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -19,6 +21,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -118,7 +121,77 @@ public class TestNgClass3 extends library{
 		driver.switchTo().defaultContent();
 		
 	}
+	
+	@Test(priority=4)
+	public void HandlingWindows(){
+		System.out.println("HandlingWindows");
+		driver.navigate().to(propObj.getProperty("WindowsURL"));
+		waitForPageToLoad();
+		Set<String> allWindows=driver.getWindowHandles();
+		int CountOfWindows=allWindows.size();
+		System.out.println(CountOfWindows);
+		for (String window:allWindows){
+			driver.switchTo().window(window);
+			String Title=driver.getTitle();
+			System.out.println("Title: "+Title);
+			if(Title.equals("Cognizant")){
+				driver.manage().window().maximize();
+				driver.close();//this will close the current browser
+			}else if(Title.equals("Tech Mahindra")){
+				driver.manage().window().maximize();
+				driver.close();
+			}else if(Title.equals("Jobs - Recruitment - Job Search - Employment -Job Vacancies - Naukri.com")){
+				driver.close();
+			}
+		}
+		//driver.quit();//will close all windows (all instances of webdriver)
+	}
 
+	@Test(priority=5)
+	public void HandlingWebTable(){
+		System.out.println("inside HandlingWebTable");
+		driver.navigate().to(propObj.getProperty("WebTableURL"));
+		waitForPageToLoad();
+		String LastNames=propObj.getProperty("webtableLastNames");
+		List<WebElement> AllItmes=driver.findElements(By.xpath("//table[@id='example']/tbody/tr/td[3]"));
+		int Count=AllItmes.size();
+		//System.out.println(LastNames);
+		String AllLastNames[]=LastNames.split(",");
+		for(String Name:AllLastNames){
+			for(int i=1;i<=Count;i++){
+				String LastName = driver.findElement(By.xpath("//table[@id='example']/tbody/tr["+i+"]/td[3]")).getText();
+				System.out.println(LastName);
+				if(LastName.equals(Name)){
+					String Salary = driver.findElement(By.xpath("//table[@id='example']/tbody/tr["+i+"]/td[7]")).getText();
+					System.out.println(Salary);
+					break;
+				}
+			}
+		}
+	}
+	
+	@Test(priority=6)
+	public void HandlingMouseActions(){
+		System.out.println("inside HandlingMouseActions");
+		driver.navigate().to(propObj.getProperty("mouseOpeartionRightClick"));
+		waitForPageToLoad();
+		Actions obj=new Actions(driver);
+		WebElement target = driver.findElement(By.xpath("//span[contains(text(),'right click me')]"));
+		obj.contextClick(target).build().perform();
+		String action=driver.findElement(By.xpath("//li[@class='context-menu-item context-menu-icon context-menu-icon-copy']/span")).getText();
+		System.out.println("action: "+action);
+		driver.findElement(By.xpath("//li[@class='context-menu-item context-menu-icon context-menu-icon-copy']/span")).click();
+		Alert alertobj= driver.switchTo().alert();
+		String AlertText=alertobj.getText().substring(9);
+		System.out.println("AlertText: "+AlertText);
+		//String text=AlertText.substring(9);
+		//AlertText.contains(action.toLowerCase())
+		Assert.assertEquals(AlertText, action.toLowerCase());
+		alertobj.accept();
+	}
+	
+	
+	
 	@BeforeMethod
 	public void beforeMethod() {
 		System.out.println("inside beforeMethod");
@@ -155,10 +228,4 @@ public class TestNgClass3 extends library{
 		System.out.println("inside beforeSuite");
 		library.readPropertyFIle();
 	}
-
-	@AfterSuite
-	public void afterSuite() {
-		System.out.println("inside afterSuite");
-	}
-
-}
+}		

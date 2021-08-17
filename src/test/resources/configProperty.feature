@@ -11,3 +11,4 @@ mouseOpeartionDoubleClick = https://api.jquery.com/dblclick/
 mouseOperationDragAndDrop = https://jqueryui.com/droppable/
 FileUpload = http://demo.automationtesting.in/FileUpload.html
 AutomationRegister = http://demo.automationtesting.in/Register.html
+webtableLastNames=Williamson,Nash

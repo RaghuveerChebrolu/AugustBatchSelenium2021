@@ -6,14 +6,11 @@
       <class name="com.TestNG.TestCases.TestNgClass3">
         <methods>
           <include name="afterTest"/>
-          <include name="HandlingFrames"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
-          <include name="afterSuite"/>
           <include name="beforeTest"/>
           <include name="afterMethod"/>
-          <include name="ValidatingAlerts"/>
-          <include name="ValidateGMO_OnLineLoadedSuccessfully"/>
+          <include name="HandlingMouseActions"/>
           <include name="beforeSuite"/>
           <include name="afterClass"/>
         </methods>

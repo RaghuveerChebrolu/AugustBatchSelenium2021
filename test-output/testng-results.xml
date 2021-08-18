@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="7" total="8" passed="1">
+<testng-results skipped="0" failed="0" ignored="8" total="9" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7354" started-at="2021-08-17T02:22:44Z" finished-at="2021-08-17T02:22:51Z">
+  <suite name="Default suite" duration-ms="8298" started-at="2021-08-18T02:32:10Z" finished-at="2021-08-18T02:32:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7354" started-at="2021-08-17T02:22:44Z" finished-at="2021-08-17T02:22:51Z">
+    <test name="Default test" duration-ms="8298" started-at="2021-08-18T02:32:10Z" finished-at="2021-08-18T02:32:18Z">
       <class name="com.TestNG.TestCases.TestNgClass3">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="beforeSuite" is-config="true" duration-ms="35" started-at="2021-08-17T02:22:44Z" finished-at="2021-08-17T02:22:44Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="beforeSuite" is-config="true" duration-ms="15" started-at="2021-08-18T02:32:10Z" finished-at="2021-08-18T02:32:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="beforeTest" is-config="true" duration-ms="5673" started-at="2021-08-17T02:22:44Z" finished-at="2021-08-17T02:22:49Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="beforeTest" is-config="true" duration-ms="4486" started-at="2021-08-18T02:32:10Z" finished-at="2021-08-18T02:32:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-08-17T02:22:50Z" finished-at="2021-08-17T02:22:50Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="beforeClass" is-config="true" duration-ms="2" started-at="2021-08-18T02:32:14Z" finished-at="2021-08-18T02:32:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="HandlingMouseActions()[pri:6, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="HandlingMouseActions" duration-ms="1645" started-at="2021-08-17T02:22:50Z" finished-at="2021-08-17T02:22:51Z">
+        <test-method status="PASS" signature="HandlingMouseOpeartionDoubleClick()[pri:7, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="HandlingMouseOpeartionDoubleClick" duration-ms="3749" started-at="2021-08-18T02:32:14Z" finished-at="2021-08-18T02:32:18Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- HandlingMouseActions -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-08-17T02:22:50Z" finished-at="2021-08-17T02:22:50Z">
+        </test-method> <!-- HandlingMouseOpeartionDoubleClick -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-08-18T02:32:14Z" finished-at="2021-08-18T02:32:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-08-17T02:22:51Z" finished-at="2021-08-17T02:22:51Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-08-18T02:32:18Z" finished-at="2021-08-18T02:32:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-08-17T02:22:51Z" finished-at="2021-08-17T02:22:51Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="afterClass" is-config="true" duration-ms="1" started-at="2021-08-18T02:32:18Z" finished-at="2021-08-18T02:32:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@13deb50e]" name="afterTest" is-config="true" duration-ms="2" started-at="2021-08-17T02:22:51Z" finished-at="2021-08-17T02:22:51Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass3@31ef45e3]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-08-18T02:32:18Z" finished-at="2021-08-18T02:32:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

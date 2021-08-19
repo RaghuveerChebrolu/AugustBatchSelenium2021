@@ -216,6 +216,26 @@ public class TestNgClass3 extends library {
 		library.DoubleClick(driver, target);
 	}
 
+	@Test(priority=8)
+	public void HandlingMouseOpearationDragAndDrop(){
+		System.out.println("inside HandlingMouseOpearationDragAndDrop");
+		driver.navigate().to(propObj.getProperty("mouseOperationDragAndDrop"));
+		waitForPageToLoad();
+		Actions obj = new Actions(driver);
+		WebElement frameElement = driver.findElement(By.xpath("//iframe"));
+		library.SwitchtoFrame(driver, frameElement);
+		WebElement source=driver.findElement(By.id("draggable"));
+		WebElement target=driver.findElement(By.id("droppable"));
+		//obj.dragAndDrop(source, target).build().perform();
+		obj.clickAndHold(source).build().perform();
+		obj.moveToElement(target).click().build().perform();
+		String ActualText=driver.findElement(By.xpath("//div[@id='droppable']/p")).getText();
+		String ExpectedtText = "Dropped!";
+		Assert.assertEquals(ActualText, ExpectedtText);
+		driver.switchTo().defaultContent();
+	}
+	
+	
 	@BeforeMethod
 	public void beforeMethod() {
 		System.out.println("inside beforeMethod");

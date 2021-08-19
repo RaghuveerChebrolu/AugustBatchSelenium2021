@@ -50,35 +50,61 @@ public class library {
 		}
 
 	}
-	
-	public static void luanchBrowser(){
-		String browser=(String) propObj.get("browser");
-		if(browser.equals("chrome")){
+
+	public static void luanchBrowser() {
+		String browser = (String) propObj.get("browser");
+		if (browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver=new ChromeDriver();
-		}else if(browser.equals("firefox")){
+			driver = new ChromeDriver();
+		} else if (browser.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver=new FirefoxDriver();
-		}else if(browser.equals("IE")){
+			driver = new FirefoxDriver();
+		} else if (browser.equals("IE")) {
 			WebDriverManager.iedriver().setup();
-			driver=new InternetExplorerDriver();
-		} else if(browser.equals("edge")){
+			driver = new InternetExplorerDriver();
+		} else if (browser.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
-			driver=new EdgeDriver();
+			driver = new EdgeDriver();
 		}
 		driver.get(propObj.getProperty("GmoOnloneURL_SIT"));
 		driver.manage().window().maximize();
-		// implicit wait : Global wait applicable for all web elements 
+		// implicit wait : Global wait applicable for all web elements
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	public static void ScrollIntoView(WebDriver driver,WebElement element){
-		JavascriptExecutor js=(JavascriptExecutor)driver;
+	public static void ScrollIntoView(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView()", element);
 	}
-	
-	public static void DoubleClick(WebDriver driver,WebElement element){
+
+	public static void ScrollIntoViewAndClick(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView()", element);
+		element.click();
+	}
+
+	public static void ScrollIntoViewAndDoubleClick(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView()", element);
+		Actions obj = new Actions(driver);
+		obj.doubleClick(element);
+	}
+
+	public static void ScrollIntoViewAndRightClick(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView()", element);
+		Actions obj = new Actions(driver);
+		obj.contextClick(element);
+	}
+
+	public static void DoubleClick(WebDriver driver, WebElement element) {
 		Actions obj = new Actions(driver);
 		obj.doubleClick(element).build().perform();
 	}
+
+	public static void SwitchtoFrame(WebDriver driver, WebElement element) {
+
+		driver.switchTo().frame(element);
+	}
+
 }

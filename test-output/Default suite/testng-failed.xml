@@ -5,15 +5,12 @@
     <classes>
       <class name="com.TestNG.TestCases.TestNgClass3">
         <methods>
-          <include name="HandlingWebTable"/>
           <include name="afterTest"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
+          <include name="HandlingMouseOpearationDragAndDrop"/>
           <include name="beforeTest"/>
           <include name="afterMethod"/>
-          <include name="ValidatingAlerts"/>
-          <include name="ValidateGMO_OnLineLoadedSuccessfully"/>
-          <include name="HandlingMouseActions"/>
           <include name="beforeSuite"/>
           <include name="afterClass"/>
         </methods>

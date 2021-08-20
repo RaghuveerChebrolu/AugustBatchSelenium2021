@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -103,8 +106,33 @@ public class library {
 	}
 
 	public static void SwitchtoFrame(WebDriver driver, WebElement element) {
-
 		driver.switchTo().frame(element);
 	}
 
+	public static void SwitchtoFrame(WebDriver driver, String name) {
+		driver.switchTo().frame(name);
+	}
+
+	public static void SwitchToDefaultContent(WebDriver driver) {
+		driver.switchTo().defaultContent();
+	}
+
+	public static void verifyinglinks(String Url) throws Exception {
+		try {
+			URL obj = new URL(Url);
+			HttpURLConnection objHttpConnection = (HttpURLConnection) obj.openConnection();
+			objHttpConnection.connect();
+			int ResponseCode = objHttpConnection.getResponseCode();
+			if (ResponseCode > 400 && ResponseCode < 600) {
+				System.out.println(Url + ": " + "ResponseCode:" + ResponseCode + " is not a valid Link");
+			} else if (ResponseCode > 200 && ResponseCode < 400) {
+				System.out.println(Url + ": " + "ResponseCode:" + ResponseCode + " is a valid Link");
+			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }

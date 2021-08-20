@@ -3,6 +3,7 @@ package com.TestNG.TestCases;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.utility.constants;
 import com.utility.library;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -32,7 +33,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 
-public class TestNgClass3 extends library {
+public class TestNgClass4 extends library {
 
 	@Test(priority = 0)
 	public void ValidateGMO_OnLineLoadedSuccessfully() {
@@ -55,7 +56,7 @@ public class TestNgClass3 extends library {
 
 	@Test(priority = 2)
 	public void ValidateOrderSunGlasses() {
-		driver.findElement(By.name("QTY_GLASSES")).sendKeys("3");
+		driver.findElement(By.name("QTY_GLASSES")).sendKeys(constants.QTY_GLASSES);
 		driver.findElement(By.name("bSubmit")).click();
 		String ActualTitle = driver.getTitle();
 		System.out.println(ActualTitle);
@@ -63,10 +64,10 @@ public class TestNgClass3 extends library {
 		Assert.assertEquals(ActualTitle, ExpectedTitle);
 		String unitPrice = driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText();
 		System.out.println("unitPrice: " + unitPrice);
-		String price = unitPrice.substring(2);
+		String price = unitPrice.substring(constants.pricesubstring);
 		System.out.println("price: " + price);
 		Float PriceInIntegerFormat = Float.parseFloat(price);
-		Float TotalPriceCalculated = PriceInIntegerFormat * 3;
+		Float TotalPriceCalculated = PriceInIntegerFormat * Integer.parseInt(constants.QTY_GLASSES);
 		System.out.println("TotalPriceCalculated: " + TotalPriceCalculated);
 		String ActualOrderQtyPrice = driver.findElement(By.xpath("//table/tbody/tr[2]/td[5]")).getText();
 		System.out.println("ActualOrderQtyPrice: " + ActualOrderQtyPrice);
@@ -105,20 +106,18 @@ public class TestNgClass3 extends library {
 	@Test(priority = 4)
 	public void HandlingFrames() {
 		System.out.println("inside HandlingFrames");
-		driver.navigate().to("http://demo.automationtesting.in/Frames.html");
+		driver.navigate().to(propObj.getProperty("FramesURL"));
 		waitForPageToLoad();
-		driver.switchTo().frame("singleframe");
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("hello");
-		driver.switchTo().defaultContent();
+		library.SwitchtoFrame(driver, constants.Singleframe);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(constants.SingleFrameText);
+		library.SwitchToDefaultContent(driver);
 		driver.findElement(By.xpath("//*[contains(text(),'Iframe with in an Iframe')]")).click();
-
 		WebElement ParentFrameElement = driver.findElement(By.xpath("//iframe[@src='MultipleFrames.html']"));
-		driver.switchTo().frame(ParentFrameElement);
-
+		library.SwitchtoFrame(driver, ParentFrameElement);
 		WebElement ChildFrameElement = driver.findElement(By.xpath("//iframe[@src='SingleFrame.html']"));
-		driver.switchTo().frame(ChildFrameElement);
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("inside second frame");
-		driver.switchTo().defaultContent();
+		library.SwitchtoFrame(driver, ChildFrameElement);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(constants.SecondFrameText);
+		library.SwitchToDefaultContent(driver);
 
 	}
 
@@ -235,6 +234,24 @@ public class TestNgClass3 extends library {
 		driver.switchTo().defaultContent();
 	}
 	
+	@Test(priority=10)
+	public void HandlingBrokenLinks(){
+		System.out.println("inside HandlingBrokenLinks");
+		driver.navigate().to(propObj.getProperty("BrokenLinks"));
+		waitForPageToLoad();
+		List<WebElement> AllLinks = driver.findElements(By.tagName("a"));
+		for(int i=1;i<AllLinks.size();i++ ){
+			WebElement IndividualLink = AllLinks.get(i);
+			String IndividualLinkUrl= IndividualLink.getAttribute("href");
+			try {
+				library.verifyinglinks(IndividualLinkUrl);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
 	
 	@BeforeMethod
 	public void beforeMethod() {

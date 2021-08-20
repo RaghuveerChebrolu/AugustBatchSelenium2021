@@ -3,18 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.TestNG.TestCases.TestNgClass3">
+      <class name="com.TestNG.TestCases.TestNgClass4">
         <methods>
-          <include name="afterTest"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
-          <include name="HandlingMouseOpearationDragAndDrop"/>
-          <include name="beforeTest"/>
           <include name="afterMethod"/>
+          <include name="HandlingBrokenLinks"/>
           <include name="beforeSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- com.TestNG.TestCases.TestNgClass3 -->
+      </class> <!-- com.TestNG.TestCases.TestNgClass4 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

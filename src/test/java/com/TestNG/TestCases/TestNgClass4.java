@@ -3,6 +3,7 @@ package com.TestNG.TestCases;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.Status;
 import com.utility.constants;
 import com.utility.library;
 
@@ -27,6 +28,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -38,6 +40,7 @@ public class TestNgClass4 extends library {
 	@Test(priority = 0)
 	public void ValidateGMO_OnLineLoadedSuccessfully() {
 		System.out.println("inside ValidateGMOONlineLoadedSuccessfully");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		String AcutualTitle = driver.getTitle();
 		System.out.println("AcutualTitle: " + AcutualTitle);
 		String ExpectedTitle = "Welcome to Green Mountain Outpost";
@@ -47,6 +50,7 @@ public class TestNgClass4 extends library {
 
 	@Test(priority = 1)
 	public void ValidateEnterGMO_OnLineSuccessfully() {
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.findElement(By.xpath("//input[@name='bSubmit']")).click();
 		String AcutualTitle = driver.findElement(By.xpath("(//*[contains(text(),'OnLine Catalog')])[2]")).getText();
 		System.out.println("AcutualTitle: " + AcutualTitle);
@@ -56,6 +60,7 @@ public class TestNgClass4 extends library {
 
 	@Test(priority = 2)
 	public void ValidateOrderSunGlasses() {
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.findElement(By.name("QTY_GLASSES")).sendKeys(constants.QTY_GLASSES);
 		driver.findElement(By.name("bSubmit")).click();
 		String ActualTitle = driver.getTitle();
@@ -79,6 +84,7 @@ public class TestNgClass4 extends library {
 
 	@Test(priority = 3)
 	public void ValidatingAlerts() {
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to("https://demoqa.com/alerts");
 		library.waitForPageToLoad();
 		driver.findElement(By.id("alertButton")).click();
@@ -106,6 +112,7 @@ public class TestNgClass4 extends library {
 	@Test(priority = 4)
 	public void HandlingFrames() {
 		System.out.println("inside HandlingFrames");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("FramesURL"));
 		waitForPageToLoad();
 		library.SwitchtoFrame(driver, constants.Singleframe);
@@ -124,6 +131,7 @@ public class TestNgClass4 extends library {
 	@Test(priority = 5)
 	public void HandlingWindows() {
 		System.out.println("HandlingWindows");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("WindowsURL"));
 		waitForPageToLoad();
 		Set<String> allWindows = driver.getWindowHandles();
@@ -149,6 +157,7 @@ public class TestNgClass4 extends library {
 	@Test(priority = 6)
 	public void HandlingWebTable() {
 		System.out.println("inside HandlingWebTable");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("WebTableURL"));
 		waitForPageToLoad();
 		String LastNames = propObj.getProperty("webtableLastNames");
@@ -174,6 +183,7 @@ public class TestNgClass4 extends library {
 	@Test(priority = 7)
 	public void HandlingMouseActionsRightClick() {
 		System.out.println("inside HandlingMouseActions");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("mouseOpeartionRightClick"));
 		waitForPageToLoad();
 		Actions obj = new Actions(driver);
@@ -197,6 +207,7 @@ public class TestNgClass4 extends library {
 	@Test(priority = 8)
 	public void HandlingMouseOpeartionDoubleClick() {
 		System.out.println("inside HandlingMouseOpeartionDoubleClick");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("mouseOpeartionDoubleClick"));
 		waitForPageToLoad();
 		// js.executeScript("window.scrollBy(0,500)");//scroll 500 pixels
@@ -218,6 +229,7 @@ public class TestNgClass4 extends library {
 	@Test(priority=9)
 	public void HandlingMouseOpearationDragAndDrop(){
 		System.out.println("inside HandlingMouseOpearationDragAndDrop");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("mouseOperationDragAndDrop"));
 		waitForPageToLoad();
 		Actions obj = new Actions(driver);
@@ -237,6 +249,7 @@ public class TestNgClass4 extends library {
 	@Test(priority=10)
 	public void HandlingBrokenLinks(){
 		System.out.println("inside HandlingBrokenLinks");
+		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("BrokenLinks"));
 		waitForPageToLoad();
 		List<WebElement> AllLinks = driver.findElements(By.tagName("a"));
@@ -259,13 +272,30 @@ public class TestNgClass4 extends library {
 	}
 
 	@AfterMethod
-	public void afterMethod() {
+	public void afterMethod(ITestResult Result) {
 		System.out.println("inside afterMethod");
+		if(Result.getStatus()==ITestResult.FAILURE){
+			ExtTest.log(Status.FAIL, "TestCase failed is :"+Result.getName());
+			ExtTest.log(Status.FAIL, "TestCase failed is :"+Result.getThrowable());
+			try {
+				String screencastPath=library.takescreeshot(driver, Result.getName());
+				ExtTest.addScreenCaptureFromPath(screencastPath);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(Result.getStatus()==ITestResult.SUCCESS){
+			ExtTest.log(Status.PASS, "TestCase Pass is :"+Result.getName());
+		}else if(Result.getStatus()==ITestResult.SKIP){
+			ExtTest.log(Status.SKIP, "TestCase Skipp is :"+Result.getName());
+		}
+		
 	}
 
 	@BeforeClass
 	public void beforeClass() {
 		System.out.println("inside beforeClass");
+		library.StartExtentReport();
 	}
 
 	@AfterClass
@@ -282,6 +312,7 @@ public class TestNgClass4 extends library {
 	@AfterTest
 	public void afterTest() {
 		System.out.println("inside afterTest");
+		ExtReport.flush();//dont forget to give this inrder to generate report
 	}
 
 	@BeforeSuite

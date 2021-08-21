@@ -7,12 +7,18 @@
         <methods>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
+          <include name="HandlingMouseOpearationDragAndDrop"/>
+          <include name="beforeTest"/>
+          <include name="ValidateGMO_OnLineLoadedSuccessfully"/>
+          <include name="afterClass"/>
+          <include name="HandlingWebTable"/>
+          <include name="HandlingMouseActionsRightClick"/>
           <include name="afterMethod"/>
           <include name="HandlingBrokenLinks"/>
           <include name="beforeSuite"/>
-          <include name="beforeTest"/>
           <include name="afterTest"/>
-          <include name="afterClass"/>
+          <include name="ValidatingAlerts"/>
+          <include name="HandlingMouseOpeartionDoubleClick"/>
         </methods>
       </class> <!-- com.TestNG.TestCases.TestNgClass4 -->
     </classes>

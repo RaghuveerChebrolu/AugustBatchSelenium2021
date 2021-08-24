@@ -13,6 +13,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -40,7 +48,8 @@ public class TestNgClass4 extends library {
 	@Test(priority = 0)
 	public void ValidateGMO_OnLineLoadedSuccessfully() {
 		System.out.println("inside ValidateGMOONlineLoadedSuccessfully");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		String AcutualTitle = driver.getTitle();
 		System.out.println("AcutualTitle: " + AcutualTitle);
 		String ExpectedTitle = "Welcome to Green Mountain Outpost";
@@ -50,7 +59,8 @@ public class TestNgClass4 extends library {
 
 	@Test(priority = 1)
 	public void ValidateEnterGMO_OnLineSuccessfully() {
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.findElement(By.xpath("//input[@name='bSubmit']")).click();
 		String AcutualTitle = driver.findElement(By.xpath("(//*[contains(text(),'OnLine Catalog')])[2]")).getText();
 		System.out.println("AcutualTitle: " + AcutualTitle);
@@ -60,7 +70,8 @@ public class TestNgClass4 extends library {
 
 	@Test(priority = 2)
 	public void ValidateOrderSunGlasses() {
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.findElement(By.name("QTY_GLASSES")).sendKeys(constants.QTY_GLASSES);
 		driver.findElement(By.name("bSubmit")).click();
 		String ActualTitle = driver.getTitle();
@@ -84,7 +95,8 @@ public class TestNgClass4 extends library {
 
 	@Test(priority = 3)
 	public void ValidatingAlerts() {
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to("https://demoqa.com/alerts");
 		library.waitForPageToLoad();
 		driver.findElement(By.id("alertButton")).click();
@@ -112,7 +124,8 @@ public class TestNgClass4 extends library {
 	@Test(priority = 4)
 	public void HandlingFrames() {
 		System.out.println("inside HandlingFrames");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("FramesURL"));
 		waitForPageToLoad();
 		library.SwitchtoFrame(driver, constants.Singleframe);
@@ -131,7 +144,8 @@ public class TestNgClass4 extends library {
 	@Test(priority = 5)
 	public void HandlingWindows() {
 		System.out.println("HandlingWindows");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("WindowsURL"));
 		waitForPageToLoad();
 		Set<String> allWindows = driver.getWindowHandles();
@@ -157,7 +171,8 @@ public class TestNgClass4 extends library {
 	@Test(priority = 6)
 	public void HandlingWebTable() {
 		System.out.println("inside HandlingWebTable");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("WebTableURL"));
 		waitForPageToLoad();
 		String LastNames = propObj.getProperty("webtableLastNames");
@@ -183,7 +198,8 @@ public class TestNgClass4 extends library {
 	@Test(priority = 7)
 	public void HandlingMouseActionsRightClick() {
 		System.out.println("inside HandlingMouseActions");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("mouseOpeartionRightClick"));
 		waitForPageToLoad();
 		Actions obj = new Actions(driver);
@@ -207,7 +223,8 @@ public class TestNgClass4 extends library {
 	@Test(priority = 8)
 	public void HandlingMouseOpeartionDoubleClick() {
 		System.out.println("inside HandlingMouseOpeartionDoubleClick");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("mouseOpeartionDoubleClick"));
 		waitForPageToLoad();
 		// js.executeScript("window.scrollBy(0,500)");//scroll 500 pixels
@@ -226,36 +243,38 @@ public class TestNgClass4 extends library {
 		library.DoubleClick(driver, target);
 	}
 
-	@Test(priority=9)
-	public void HandlingMouseOpearationDragAndDrop(){
+	@Test(priority = 9)
+	public void HandlingMouseOpearationDragAndDrop() {
 		System.out.println("inside HandlingMouseOpearationDragAndDrop");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("mouseOperationDragAndDrop"));
 		waitForPageToLoad();
 		Actions obj = new Actions(driver);
 		WebElement frameElement = driver.findElement(By.xpath("//iframe"));
 		library.SwitchtoFrame(driver, frameElement);
-		WebElement source=driver.findElement(By.id("draggable"));
-		WebElement target=driver.findElement(By.id("droppable"));
-		//obj.dragAndDrop(source, target).build().perform();
+		WebElement source = driver.findElement(By.id("draggable"));
+		WebElement target = driver.findElement(By.id("droppable"));
+		// obj.dragAndDrop(source, target).build().perform();
 		obj.clickAndHold(source).build().perform();
 		obj.moveToElement(target).click().build().perform();
-		String ActualText=driver.findElement(By.xpath("//div[@id='droppable']/p")).getText();
+		String ActualText = driver.findElement(By.xpath("//div[@id='droppable']/p")).getText();
 		String ExpectedtText = "Dropped!";
 		Assert.assertEquals(ActualText, ExpectedtText);
 		driver.switchTo().defaultContent();
 	}
-	
-	@Test(priority=10)
-	public void HandlingBrokenLinks(){
+
+	@Test(priority = 10)
+	public void HandlingBrokenLinks() {
 		System.out.println("inside HandlingBrokenLinks");
-		ExtTest = ExtReport.createTest(new Object() {}.getClass().getEnclosingMethod().getName());
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("BrokenLinks"));
 		waitForPageToLoad();
 		List<WebElement> AllLinks = driver.findElements(By.tagName("a"));
-		for(int i=1;i<AllLinks.size();i++ ){
+		for (int i = 1; i < AllLinks.size(); i++) {
 			WebElement IndividualLink = AllLinks.get(i);
-			String IndividualLinkUrl= IndividualLink.getAttribute("href");
+			String IndividualLinkUrl = IndividualLink.getAttribute("href");
 			try {
 				library.verifyinglinks(IndividualLinkUrl);
 			} catch (Exception e) {
@@ -263,9 +282,51 @@ public class TestNgClass4 extends library {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
+	@Test(priority = 11)
+	public void HandlingFileUpload() throws AWTException, InterruptedException {
+		System.out.println("inside HandlingFileUpload");
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
+		driver.navigate().to(propObj.getProperty("FileUpload"));
+		waitForPageToLoad();
+
+		WebElement Ele = driver.findElement(By.xpath("//input[@id='input-4']/preceding-sibling::span"));
+		// Ele.click();
+		Actions obj = new Actions(driver);
+		obj.moveToElement(Ele).click().build().perform();
+
+		StringSelection objStringSelection = new StringSelection(
+				System.getProperty("user.dir") + "\\src\\test\\resources\\Sample.jpg");
+		Clipboard objClipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		objClipboard.setContents(objStringSelection, null);
+		try {
+			Transferable objTransferable = objClipboard.getContents(null);
+			if (objTransferable.isDataFlavorSupported(DataFlavor.stringFlavor))
+				System.out.println(objTransferable.getTransferData(DataFlavor.stringFlavor));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Robot objRobot = new Robot();
+		objRobot.delay(250);
+		objRobot.keyPress(KeyEvent.VK_ENTER);
+		objRobot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+		objRobot.keyPress(KeyEvent.VK_CONTROL);
+		objRobot.keyPress(KeyEvent.VK_V);
+		Thread.sleep(2000);
+		objRobot.keyRelease(KeyEvent.VK_V);
+		objRobot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+		objRobot.keyPress(KeyEvent.VK_ENTER);
+		objRobot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+
+	}
+
 	@BeforeMethod
 	public void beforeMethod() {
 		System.out.println("inside beforeMethod");
@@ -274,22 +335,22 @@ public class TestNgClass4 extends library {
 	@AfterMethod
 	public void afterMethod(ITestResult Result) {
 		System.out.println("inside afterMethod");
-		if(Result.getStatus()==ITestResult.FAILURE){
-			ExtTest.log(Status.FAIL, "TestCase failed is :"+Result.getName());
-			ExtTest.log(Status.FAIL, "TestCase failed is :"+Result.getThrowable());
+		if (Result.getStatus() == ITestResult.FAILURE) {
+			ExtTest.log(Status.FAIL, "TestCase failed is :" + Result.getName());
+			ExtTest.log(Status.FAIL, "TestCase failed is :" + Result.getThrowable());
 			try {
-				String screencastPath=library.takescreeshot(driver, Result.getName());
+				String screencastPath = library.takescreeshot(driver, Result.getName());
 				ExtTest.addScreenCaptureFromPath(screencastPath);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else if(Result.getStatus()==ITestResult.SUCCESS){
-			ExtTest.log(Status.PASS, "TestCase Pass is :"+Result.getName());
-		}else if(Result.getStatus()==ITestResult.SKIP){
-			ExtTest.log(Status.SKIP, "TestCase Skipp is :"+Result.getName());
+		} else if (Result.getStatus() == ITestResult.SUCCESS) {
+			ExtTest.log(Status.PASS, "TestCase Pass is :" + Result.getName());
+		} else if (Result.getStatus() == ITestResult.SKIP) {
+			ExtTest.log(Status.SKIP, "TestCase Skipp is :" + Result.getName());
 		}
-		
+
 	}
 
 	@BeforeClass
@@ -312,7 +373,7 @@ public class TestNgClass4 extends library {
 	@AfterTest
 	public void afterTest() {
 		System.out.println("inside afterTest");
-		ExtReport.flush();//dont forget to give this inrder to generate report
+		ExtReport.flush();// dont forget to give this inrder to generate report
 	}
 
 	@BeforeSuite

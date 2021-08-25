@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
+import com.utility.ObjectRepository;
 import com.utility.constants;
 import com.utility.library;
 
@@ -61,11 +62,13 @@ public class TestNgClass4 extends library {
 	public void ValidateEnterGMO_OnLineSuccessfully() {
 		ExtTest = ExtReport.createTest(new Object() {
 		}.getClass().getEnclosingMethod().getName());
-		driver.findElement(By.xpath("//input[@name='bSubmit']")).click();
-		String AcutualTitle = driver.findElement(By.xpath("(//*[contains(text(),'OnLine Catalog')])[2]")).getText();
+		library.findElementByLocator(ObjectRepository.EnterGMO_OnLine).click();
+		String AcutualTitle = driver.findElement(By.xpath(ObjectRepository.EnterGMOOnLineTitle)).getText();
 		System.out.println("AcutualTitle: " + AcutualTitle);
 		String ExpectedTitle = "OnLine Catalog";
 		Assert.assertEquals(AcutualTitle, ExpectedTitle);
+		
+		
 	}
 
 	@Test(priority = 2)

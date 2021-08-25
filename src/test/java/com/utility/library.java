@@ -13,6 +13,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -55,16 +56,16 @@ public class library {
 	// helper methods
 
 	public static void StartExtentReport() {
-		htmlReporter= new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExtentReportV4.html");
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExtentReportV4.html");
 		htmlReporter.config().setDocumentTitle("AutomationReport");
 		htmlReporter.config().setReportName("Selenium");
 		htmlReporter.config().setTheme(Theme.STANDARD);
-		ExtReport= new ExtentReports();
+		ExtReport = new ExtentReports();
 		ExtReport.attachReporter(htmlReporter);
 		ExtReport.setSystemInfo("Host Name", "LocalHost");
 		ExtReport.setSystemInfo("user", "Trainer:");
-		ExtReport.setSystemInfo("Environemnet",  (String) propObj.get("environment"));
-		ExtReport.setSystemInfo("Browser",  (String) propObj.get("browser"));
+		ExtReport.setSystemInfo("Environemnet", (String) propObj.get("environment"));
+		ExtReport.setSystemInfo("Browser", (String) propObj.get("browser"));
 	}
 
 	public static void waitForPageToLoad() {
@@ -172,16 +173,17 @@ public class library {
 		}
 
 	}
-	
+
 	public static String takescreeshot(WebDriver driver) throws Exception {
 		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		System.out.println(dateName);
-		String destination = System.getProperty("user.dir") + "//src//test//resources//screenshots//" + dateName + "captured.png";
+		String destination = System.getProperty("user.dir") + "//src//test//resources//screenshots//" + dateName
+				+ "captured.png";
 		FileUtils.copyFile(source, new File(destination));
 		return destination;
 	}
-	
+
 	public static String takescreeshot(WebDriver driver, String name) throws Exception {
 		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -191,4 +193,34 @@ public class library {
 		FileUtils.copyFile(source, new File(destination));
 		return destination;
 	}
+
+	public static WebElement findElementByLocator(String ObjRepLocator){
+		
+		System.out.println(ObjRepLocator);
+		String locator=ObjRepLocator.split("&")[0];
+		String value = ObjRepLocator.split("&")[1];
+		System.out.println("locator: "+locator);
+		System.out.println("value: "+value);
+		WebElement element=null;
+		By search=null;
+		if(locator.equals("id")){
+			search=By.id(value);
+		}else if(locator.equals("name")){
+			search=By.name(value);
+		}else if(locator.equals("className")){
+			search=By.className(value);
+		}else if(locator.equals("xpath")){
+			search=By.xpath(value);
+		}else if(locator.equals("cssSelector")){
+			search=By.cssSelector(value);
+		}else if(locator.equals("linkText")){
+			search=By.linkText(value);
+		}else if(locator.equals("partialLinkText")){
+			search=By.partialLinkText(value);
+		}else if(locator.equals("tagName")){
+			search=By.tagName(value);
+		}
+		return driver.findElement(search);
+	}
+
 }

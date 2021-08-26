@@ -8,11 +8,19 @@
           <include name="HandlingFileUpload"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
-          <include name="afterMethod"/>
-          <include name="beforeSuite"/>
+          <include name="HandlingMouseOpearationDragAndDrop"/>
           <include name="beforeTest"/>
-          <include name="afterTest"/>
           <include name="afterClass"/>
+          <include name="HandlingWebTable"/>
+          <include name="HandlingFrames"/>
+          <include name="HandlingMouseActionsRightClick"/>
+          <include name="afterMethod"/>
+          <include name="HandlingBrokenLinks"/>
+          <include name="beforeSuite"/>
+          <include name="HandlingWindows"/>
+          <include name="afterTest"/>
+          <include name="ValidatingAlerts"/>
+          <include name="HandlingMouseOpeartionDoubleClick"/>
         </methods>
       </class> <!-- com.TestNG.TestCases.TestNgClass4 -->
     </classes>

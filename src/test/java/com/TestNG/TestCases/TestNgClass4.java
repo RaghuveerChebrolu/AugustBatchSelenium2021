@@ -63,7 +63,7 @@ public class TestNgClass4 extends library {
 		ExtTest = ExtReport.createTest(new Object() {
 		}.getClass().getEnclosingMethod().getName());
 		library.findElementByLocator(ObjectRepository.EnterGMO_OnLine).click();
-		String AcutualTitle = driver.findElement(By.xpath(ObjectRepository.EnterGMOOnLineTitle)).getText();
+		String AcutualTitle = library.findElementByLocator(ObjectRepository.EnterGMOOnLineTitle).getText();
 		System.out.println("AcutualTitle: " + AcutualTitle);
 		String ExpectedTitle = "OnLine Catalog";
 		Assert.assertEquals(AcutualTitle, ExpectedTitle);
@@ -179,7 +179,8 @@ public class TestNgClass4 extends library {
 		driver.navigate().to(propObj.getProperty("WebTableURL"));
 		waitForPageToLoad();
 		String LastNames = propObj.getProperty("webtableLastNames");
-		List<WebElement> AllItmes = driver.findElements(By.xpath("//table[@id='example']/tbody/tr/td[3]"));
+		//List<WebElement> AllItmes = driver.findElements(By.xpath("//table[@id='example']/tbody/tr/td[3]"));
+		List<WebElement> AllItmes = library.findElementsByLocator(ObjectRepository.WebTableLastNames);
 		int Count = AllItmes.size();
 		// System.out.println(LastNames);
 		String AllLastNames[] = LastNames.split(",");
@@ -256,8 +257,10 @@ public class TestNgClass4 extends library {
 		Actions obj = new Actions(driver);
 		WebElement frameElement = driver.findElement(By.xpath("//iframe"));
 		library.SwitchtoFrame(driver, frameElement);
-		WebElement source = driver.findElement(By.id("draggable"));
-		WebElement target = driver.findElement(By.id("droppable"));
+		//WebElement source = driver.findElement(By.id("draggable"));
+	//	WebElement target = driver.findElement(By.id("droppable"));
+		WebElement source = library.findElementByLocator(ObjectRepository.DragItem);
+		WebElement target = library.findElementByLocator(ObjectRepository.DropItem);
 		// obj.dragAndDrop(source, target).build().perform();
 		obj.clickAndHold(source).build().perform();
 		obj.moveToElement(target).click().build().perform();
@@ -274,7 +277,8 @@ public class TestNgClass4 extends library {
 		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("BrokenLinks"));
 		waitForPageToLoad();
-		List<WebElement> AllLinks = driver.findElements(By.tagName("a"));
+		//List<WebElement> AllLinks = driver.findElements(By.tagName("a"));
+		List<WebElement> AllLinks = library.findElementsByLocator(ObjectRepository.BrokenLinksTagName);
 		for (int i = 1; i < AllLinks.size(); i++) {
 			WebElement IndividualLink = AllLinks.get(i);
 			String IndividualLinkUrl = IndividualLink.getAttribute("href");

@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -20,9 +21,13 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -96,15 +101,23 @@ public class library {
 		String browser = (String) propObj.get("browser");
 		if (browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			ChromeOptions objChromeOptions = new ChromeOptions();
+			objChromeOptions.setAcceptInsecureCerts(true);
+			driver = new ChromeDriver(objChromeOptions);
 		} else if (browser.equals("firefox")) {
+			FirefoxOptions objFirefoxOptions = new FirefoxOptions();
+			objFirefoxOptions.setAcceptInsecureCerts(true);
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			driver = new FirefoxDriver(objFirefoxOptions);
 		} else if (browser.equals("IE")) {
 			WebDriverManager.iedriver().setup();
+			//InternetExplorerOptions objIEOptions = new InternetExplorerOptions();
+			//objIEOptions.set
 			driver = new InternetExplorerDriver();
 		} else if (browser.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
+		//	EdgeOptions edgeOptions = new EdgeOptions();
+		//	edgeOptions.setAcceptInsecureCerts(true);
 			driver = new EdgeDriver();
 		}
 		driver.get(propObj.getProperty("GmoOnloneURL_SIT"));
@@ -221,6 +234,35 @@ public class library {
 			search=By.tagName(value);
 		}
 		return driver.findElement(search);
+	}
+	
+	public static List<WebElement> findElementsByLocator(String ObjRepLocator){
+		
+		System.out.println(ObjRepLocator);
+		String locator=ObjRepLocator.split("&")[0];
+		String value = ObjRepLocator.split("&")[1];
+		System.out.println("locator: "+locator);
+		System.out.println("value: "+value);
+		WebElement element=null;
+		By search=null;
+		if(locator.equals("id")){
+			search=By.id(value);
+		}else if(locator.equals("name")){
+			search=By.name(value);
+		}else if(locator.equals("className")){
+			search=By.className(value);
+		}else if(locator.equals("xpath")){
+			search=By.xpath(value);
+		}else if(locator.equals("cssSelector")){
+			search=By.cssSelector(value);
+		}else if(locator.equals("linkText")){
+			search=By.linkText(value);
+		}else if(locator.equals("partialLinkText")){
+			search=By.partialLinkText(value);
+		}else if(locator.equals("tagName")){
+			search=By.tagName(value);
+		}
+		return driver.findElements(search);
 	}
 
 }

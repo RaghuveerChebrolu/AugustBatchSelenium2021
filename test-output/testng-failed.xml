@@ -5,22 +5,14 @@
     <classes>
       <class name="com.TestNG.TestCases.TestNgClass4">
         <methods>
-          <include name="HandlingFileUpload"/>
+          <include name="HandlingFrames"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
-          <include name="HandlingMouseOpearationDragAndDrop"/>
-          <include name="beforeTest"/>
-          <include name="afterClass"/>
-          <include name="HandlingWebTable"/>
-          <include name="HandlingFrames"/>
-          <include name="HandlingMouseActionsRightClick"/>
           <include name="afterMethod"/>
-          <include name="HandlingBrokenLinks"/>
           <include name="beforeSuite"/>
-          <include name="HandlingWindows"/>
+          <include name="beforeTest"/>
           <include name="afterTest"/>
-          <include name="ValidatingAlerts"/>
-          <include name="HandlingMouseOpeartionDoubleClick"/>
+          <include name="afterClass"/>
         </methods>
       </class> <!-- com.TestNG.TestCases.TestNgClass4 -->
     </classes>

@@ -131,7 +131,7 @@ public class TestNgClass4 extends library {
 		}.getClass().getEnclosingMethod().getName());
 		driver.navigate().to(propObj.getProperty("FramesURL"));
 		waitForPageToLoad();
-		library.SwitchtoFrame(driver, constants.Singleframe);
+		SwitchtoFrame(driver, constants.Singleframe);
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(constants.SingleFrameText);
 		library.SwitchToDefaultContent(driver);
 		driver.findElement(By.xpath("//*[contains(text(),'Iframe with in an Iframe')]")).click();

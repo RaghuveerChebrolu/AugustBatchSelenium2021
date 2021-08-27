@@ -26,6 +26,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -119,12 +120,26 @@ public class library {
 		//	EdgeOptions edgeOptions = new EdgeOptions();
 		//	edgeOptions.setAcceptInsecureCerts(true);
 			driver = new EdgeDriver();
+		} else if (browser.equals("headless")) {
+			//HtmlUnitDriver htmldriver=new HtmlUnitDriver();
+			driver=new HtmlUnitDriver();
+			((HtmlUnitDriver) driver).setJavascriptEnabled(true);
+		//	 HtmlUnitDriver unitDriver = new HtmlUnitDriver();
+		  // unitDriver.get("https://demoqa.com/");
+			
+			driver.get(propObj.getProperty("GmoOnloneURL_SIT"));
+			driver.manage().window().maximize();
+			// implicit wait : Global wait applicable for all web elements
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}
 		driver.get(propObj.getProperty("GmoOnloneURL_SIT"));
 		driver.manage().window().maximize();
 		// implicit wait : Global wait applicable for all web elements
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
+
+	
+
 
 	public static void ScrollIntoView(WebDriver driver, WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;

@@ -22,6 +22,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -332,6 +333,31 @@ public class TestNgClass4 extends library {
 		objRobot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
 
+	}
+	
+	@Test(priority=12)
+	public void ValidateFileDownLoad() throws InterruptedException{
+		System.out.println("inside ValidateFileDownLoad");
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
+		driver.navigate().to(propObj.getProperty("FileDownload"));
+		waitForPageToLoad();
+		library.findElementByLocator(ObjectRepository.FileDownload).click();
+		Thread.sleep(9000);
+		File objFIle = new File (System.getProperty("user.dir"));
+		File []listofFiles=objFIle.listFiles();
+		File Obj = null;
+		boolean fileFound = false;
+		for(File IndifidualFile : listofFiles){
+			String FileName= IndifidualFile.getName();
+			System.out.println(FileName);
+			if(FileName.contains("file-sample")){
+			Obj=new File(FileName);
+			fileFound=true;		
+			}
+		}
+		Assert.assertTrue(fileFound, "Downloaded File Not Found");
+		Obj.deleteOnExit();
 	}
 
 	@BeforeMethod

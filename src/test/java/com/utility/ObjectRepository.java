@@ -16,6 +16,8 @@ public class ObjectRepository {
 		
 		public static final String DragItem = constants.ID+"&"+"draggable";
 		public static final String DropItem = constants.ID+"&"+"droppable";
+		
+		public static final String FileDownload = constants.xpath+"&"+"//a[@download='file-sample_100kB.doc']";
 	
 		
 	}

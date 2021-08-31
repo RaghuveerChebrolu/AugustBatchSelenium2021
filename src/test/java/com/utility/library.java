@@ -9,7 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +32,8 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -104,7 +108,16 @@ public class library {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions objChromeOptions = new ChromeOptions();
 			objChromeOptions.setAcceptInsecureCerts(true);
+			Map<String,Object> chromePrefs = new HashMap<String,Object>();
+			chromePrefs.put("profile.default_content_settings.popups", 0);
+			chromePrefs.put("download.prompt_for_download", false);
+			chromePrefs.put("download.default_directory", System.getProperty("user.dir"));
+			objChromeOptions.setExperimentalOption("prefs", chromePrefs);
 			driver = new ChromeDriver(objChromeOptions);
+			DesiredCapabilities ObjDesiredCap = DesiredCapabilities.chrome();
+			ObjDesiredCap.setCapability(ChromeOptions.CAPABILITY, objChromeOptions);
+			ObjDesiredCap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			
 		} else if (browser.equals("firefox")) {
 			FirefoxOptions objFirefoxOptions = new FirefoxOptions();
 			objFirefoxOptions.setAcceptInsecureCerts(true);

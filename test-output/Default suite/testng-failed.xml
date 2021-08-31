@@ -5,13 +5,13 @@
     <classes>
       <class name="com.TestNG.TestCases.TestNgClass4">
         <methods>
-          <include name="HandlingFrames"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
           <include name="afterMethod"/>
           <include name="beforeSuite"/>
           <include name="beforeTest"/>
           <include name="afterTest"/>
+          <include name="ValidateFileDownLoad"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- com.TestNG.TestCases.TestNgClass4 -->

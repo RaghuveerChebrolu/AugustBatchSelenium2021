@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Aug 27 07:53:17 IST 2021</td>
+<td>Started on:</td><td>Tue Aug 31 07:57:11 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>14 seconds (14361 ms)</td>
+<tr><td>Total time:</td><td>299 seconds (299285 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,149 +67,18 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.TestNG.TestCases.TestNgClass4.HandlingFrames()'><b>HandlingFrames</b><br>Test class: com.TestNG.TestCases.TestNgClass4</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: com.gargoylesoftware.htmlunit.ScriptException: Error: Bootstrap&apos;s JavaScript requires jQuery (http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js#6)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-A9DN365&apos;, ip: &apos;192.168.1.5&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_91&apos;
-Driver info: driver.version: HtmlUnitDriver
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.get(HtmlUnitDriver.java:733)
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.lambda$get$8(HtmlUnitDriver.java:697)
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.lambda$runAsync$0(HtmlUnitDriver.java:438)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: com.gargoylesoftware.htmlunit.ScriptException: Error: Bootstrap&apos;s JavaScript requires jQuery (http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js#6)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:954)
-	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:580)
-	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:481)
-	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.callSecured(HtmlUnitContextFactory.java:352)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.execute(JavaScriptEngine.java:834)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.execute(JavaScriptEngine.java:810)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.execute(JavaScriptEngine.java:112)
-	at com.gargoylesoftware.htmlunit.html.HtmlPage.loadExternalJavaScriptFile(HtmlPage.java:1022)
-	at com.gargoylesoftware.htmlunit.html.ScriptElementSupport.executeScriptIfNeeded(ScriptElementSupport.java:196)
-	at com.gargoylesoftware.htmlunit.html.ScriptElementSupport$1.execute(ScriptElementSupport.java:120)
-	at com.gargoylesoftware.htmlunit.html.ScriptElementSupport.onAllChildrenAddedToPage(ScriptElementSupport.java:143)
-	at com.gargoylesoftware.htmlunit.html.HtmlScript.onAllChildrenAddedToPage(HtmlScript.java:191)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoDOMBuilder.endElement(HtmlUnitNekoDOMBuilder.java:551)
-	at org.apache.xerces.parsers.AbstractSAXParser.endElement(Unknown Source)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoDOMBuilder.endElement(HtmlUnitNekoDOMBuilder.java:503)
-	at net.sourceforge.htmlunit.cyberneko.HTMLTagBalancer.callEndElement(HTMLTagBalancer.java:1216)
-	at net.sourceforge.htmlunit.cyberneko.HTMLTagBalancer.endElement(HTMLTagBalancer.java:1156)
-	at net.sourceforge.htmlunit.cyberneko.filters.DefaultFilter.endElement(DefaultFilter.java:219)
-	at net.sourceforge.htmlunit.cyberneko.filters.NamespaceBinder.endElement(NamespaceBinder.java:312)
-	at net.sourceforge.htmlunit.cyberneko.HTMLScanner$ContentScanner.scanEndElement(HTMLScanner.java:3189)
-	at net.sourceforge.htmlunit.cyberneko.HTMLScanner$ContentScanner.scan(HTMLScanner.java:2114)
-	at net.sourceforge.htmlunit.cyberneko.HTMLScanner.scanDocument(HTMLScanner.java:937)
-	at net.sourceforge.htmlunit.cyberneko.HTMLConfiguration.parse(HTMLConfiguration.java:443)
-	at net.sourceforge.htmlunit.cyberneko.HTMLConfiguration.parse(HTMLConfiguration.java:394)
-	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoDOMBuilder.parse(HtmlUnitNekoDOMBuilder.java:751)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoHtmlParser.parse(HtmlUnitNekoHtmlParser.java:208)
-	at com.gargoylesoftware.htmlunit.DefaultPageCreator.createHtmlPage(DefaultPageCreator.java:297)
-	at com.gargoylesoftware.htmlunit.DefaultPageCreator.createPage(DefaultPageCreator.java:217)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:684)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:586)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:501)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:413)
-	at com.gargoylesoftware.htmlunit.html.BaseFrameElement.loadInnerPageIfPossible(BaseFrameElement.java:202)
-	at com.gargoylesoftware.htmlunit.html.BaseFrameElement.loadInnerPage(BaseFrameElement.java:128)
-	at com.gargoylesoftware.htmlunit.html.HtmlPage.loadFrames(HtmlPage.java:1924)
-	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:263)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:704)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:586)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:501)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:413)
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.get(HtmlUnitDriver.java:715)
-	... 5 more
-Caused by: net.sourceforge.htmlunit.corejs.javascript.JavaScriptException: Error: Bootstrap&apos;s JavaScript requires jQuery (http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js#6)
-	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1300)
-	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:1053)
-	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:111)
-	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:389)
-	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:338)
-	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3907)
-	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.exec(InterpretedFunction.java:123)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$2.doRun(JavaScriptEngine.java:825)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:939)
-	... 46 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace929706284", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace929706284'><pre>org.openqa.selenium.WebDriverException: com.gargoylesoftware.htmlunit.ScriptException: Error: Bootstrap&apos;s JavaScript requires jQuery (http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js#6)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-A9DN365&apos;, ip: &apos;192.168.1.5&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_91&apos;
-Driver info: driver.version: HtmlUnitDriver
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.get(HtmlUnitDriver.java:733)
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.lambda$get$8(HtmlUnitDriver.java:697)
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.lambda$runAsync$0(HtmlUnitDriver.java:438)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: com.gargoylesoftware.htmlunit.ScriptException: Error: Bootstrap&apos;s JavaScript requires jQuery (http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js#6)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:954)
-	at net.sourceforge.htmlunit.corejs.javascript.Context.call(Context.java:580)
-	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.call(ContextFactory.java:481)
-	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.callSecured(HtmlUnitContextFactory.java:352)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.execute(JavaScriptEngine.java:834)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.execute(JavaScriptEngine.java:810)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine.execute(JavaScriptEngine.java:112)
-	at com.gargoylesoftware.htmlunit.html.HtmlPage.loadExternalJavaScriptFile(HtmlPage.java:1022)
-	at com.gargoylesoftware.htmlunit.html.ScriptElementSupport.executeScriptIfNeeded(ScriptElementSupport.java:196)
-	at com.gargoylesoftware.htmlunit.html.ScriptElementSupport$1.execute(ScriptElementSupport.java:120)
-	at com.gargoylesoftware.htmlunit.html.ScriptElementSupport.onAllChildrenAddedToPage(ScriptElementSupport.java:143)
-	at com.gargoylesoftware.htmlunit.html.HtmlScript.onAllChildrenAddedToPage(HtmlScript.java:191)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoDOMBuilder.endElement(HtmlUnitNekoDOMBuilder.java:551)
-	at org.apache.xerces.parsers.AbstractSAXParser.endElement(Unknown Source)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoDOMBuilder.endElement(HtmlUnitNekoDOMBuilder.java:503)
-	at net.sourceforge.htmlunit.cyberneko.HTMLTagBalancer.callEndElement(HTMLTagBalancer.java:1216)
-	at net.sourceforge.htmlunit.cyberneko.HTMLTagBalancer.endElement(HTMLTagBalancer.java:1156)
-	at net.sourceforge.htmlunit.cyberneko.filters.DefaultFilter.endElement(DefaultFilter.java:219)
-	at net.sourceforge.htmlunit.cyberneko.filters.NamespaceBinder.endElement(NamespaceBinder.java:312)
-	at net.sourceforge.htmlunit.cyberneko.HTMLScanner$ContentScanner.scanEndElement(HTMLScanner.java:3189)
-	at net.sourceforge.htmlunit.cyberneko.HTMLScanner$ContentScanner.scan(HTMLScanner.java:2114)
-	at net.sourceforge.htmlunit.cyberneko.HTMLScanner.scanDocument(HTMLScanner.java:937)
-	at net.sourceforge.htmlunit.cyberneko.HTMLConfiguration.parse(HTMLConfiguration.java:443)
-	at net.sourceforge.htmlunit.cyberneko.HTMLConfiguration.parse(HTMLConfiguration.java:394)
-	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoDOMBuilder.parse(HtmlUnitNekoDOMBuilder.java:751)
-	at com.gargoylesoftware.htmlunit.html.parser.neko.HtmlUnitNekoHtmlParser.parse(HtmlUnitNekoHtmlParser.java:208)
-	at com.gargoylesoftware.htmlunit.DefaultPageCreator.createHtmlPage(DefaultPageCreator.java:297)
-	at com.gargoylesoftware.htmlunit.DefaultPageCreator.createPage(DefaultPageCreator.java:217)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:684)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:586)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:501)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:413)
-	at com.gargoylesoftware.htmlunit.html.BaseFrameElement.loadInnerPageIfPossible(BaseFrameElement.java:202)
-	at com.gargoylesoftware.htmlunit.html.BaseFrameElement.loadInnerPage(BaseFrameElement.java:128)
-	at com.gargoylesoftware.htmlunit.html.HtmlPage.loadFrames(HtmlPage.java:1924)
-	at com.gargoylesoftware.htmlunit.html.HtmlPage.initialize(HtmlPage.java:263)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:704)
-	at com.gargoylesoftware.htmlunit.WebClient.loadWebResponseInto(WebClient.java:586)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:501)
-	at com.gargoylesoftware.htmlunit.WebClient.getPage(WebClient.java:413)
-	at org.openqa.selenium.htmlunit.HtmlUnitDriver.get(HtmlUnitDriver.java:715)
-	... 5 more
-Caused by: net.sourceforge.htmlunit.corejs.javascript.JavaScriptException: Error: Bootstrap&apos;s JavaScript requires jQuery (http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js#6)
-	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpretLoop(Interpreter.java:1300)
-	at net.sourceforge.htmlunit.corejs.javascript.Interpreter.interpret(Interpreter.java:1053)
-	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.call(InterpretedFunction.java:111)
-	at net.sourceforge.htmlunit.corejs.javascript.ContextFactory.doTopCall(ContextFactory.java:389)
-	at com.gargoylesoftware.htmlunit.javascript.HtmlUnitContextFactory.doTopCall(HtmlUnitContextFactory.java:338)
-	at net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3907)
-	at net.sourceforge.htmlunit.corejs.javascript.InterpretedFunction.exec(InterpretedFunction.java:123)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$2.doRun(JavaScriptEngine.java:825)
-	at com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine$HtmlUnitContextAction.run(JavaScriptEngine.java:939)
-	... 46 more
-</pre></div></td>
-<td>6</td>
-<td>com.TestNG.TestCases.TestNgClass4@43738a82</td></tr>
+<td title='com.TestNG.TestCases.TestNgClass4.ValidateFileDownLoad()'><b>ValidateFileDownLoad</b><br>Test class: com.TestNG.TestCases.TestNgClass4</td>
+<td></td>
+<td>287</td>
+<td>com.TestNG.TestCases.TestNgClass4@385e9564</td></tr>
 </table><p>
 </body>
 </html>

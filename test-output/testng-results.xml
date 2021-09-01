@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="12" total="13" passed="1">
+<testng-results skipped="0" failed="0" ignored="13" total="14" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="299285" started-at="2021-08-31T02:27:11Z" finished-at="2021-08-31T02:32:10Z">
+  <suite name="Default suite" duration-ms="21181" started-at="2021-09-01T02:33:31Z" finished-at="2021-09-01T02:33:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="299285" started-at="2021-08-31T02:27:11Z" finished-at="2021-08-31T02:32:10Z">
+    <test name="Default test" duration-ms="21181" started-at="2021-09-01T02:33:31Z" finished-at="2021-09-01T02:33:52Z">
       <class name="com.TestNG.TestCases.TestNgClass4">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="beforeSuite" is-config="true" duration-ms="19" started-at="2021-08-31T02:27:11Z" finished-at="2021-08-31T02:27:11Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="beforeSuite" is-config="true" duration-ms="20" started-at="2021-09-01T02:33:31Z" finished-at="2021-09-01T02:33:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="beforeTest" is-config="true" duration-ms="4849" started-at="2021-08-31T02:27:11Z" finished-at="2021-08-31T02:27:16Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="beforeTest" is-config="true" duration-ms="4320" started-at="2021-09-01T02:33:31Z" finished-at="2021-09-01T02:33:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="beforeClass" is-config="true" duration-ms="303" started-at="2021-08-31T02:27:16Z" finished-at="2021-08-31T02:27:16Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="beforeClass" is-config="true" duration-ms="159" started-at="2021-09-01T02:33:35Z" finished-at="2021-09-01T02:33:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2021-08-31T02:27:16Z" finished-at="2021-08-31T02:27:16Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-09-01T02:33:36Z" finished-at="2021-09-01T02:33:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="ValidateFileDownLoad()[pri:12, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="ValidateFileDownLoad" duration-ms="287495" started-at="2021-08-31T02:27:16Z" finished-at="2021-08-31T02:32:03Z">
+        <test-method status="PASS" signature="validateDataDriven()[pri:13, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="validateDataDriven" duration-ms="15801" started-at="2021-09-01T02:33:36Z" finished-at="2021-09-01T02:33:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValidateFileDownLoad -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="afterMethod" is-config="true" duration-ms="71" started-at="2021-08-31T02:32:03Z" finished-at="2021-08-31T02:32:04Z">
+        </test-method> <!-- validateDataDriven -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="afterMethod" is-config="true" duration-ms="29" started-at="2021-09-01T02:33:51Z" finished-at="2021-09-01T02:33:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ValidateFileDownLoad status=SUCCESS method=TestNgClass4.ValidateFileDownLoad()[pri:12, instance:com.TestNG.TestCases.TestNgClass4@385e9564] output={null}]]]>
+                <![CDATA[[TestResult name=validateDataDriven status=SUCCESS method=TestNgClass4.validateDataDriven()[pri:13, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="afterClass" is-config="true" duration-ms="2" started-at="2021-08-31T02:32:07Z" finished-at="2021-08-31T02:32:07Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-09-01T02:33:51Z" finished-at="2021-09-01T02:33:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@385e9564]" name="afterTest" is-config="true" duration-ms="1884" started-at="2021-08-31T02:32:08Z" finished-at="2021-08-31T02:32:10Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@2e3fc542]" name="afterTest" is-config="true" duration-ms="842" started-at="2021-09-01T02:33:51Z" finished-at="2021-09-01T02:33:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

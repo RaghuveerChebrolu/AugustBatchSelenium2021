@@ -23,11 +23,18 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.input.WindowsLineEndingInputStream;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -47,6 +54,8 @@ import org.testng.annotations.AfterSuite;
 
 public class TestNgClass4 extends library {
 
+	HashMap<String,String> testdata = new HashMap<String,String>();
+	
 	@Test(priority = 0)
 	public void ValidateGMO_OnLineLoadedSuccessfully() {
 		System.out.println("inside ValidateGMOONlineLoadedSuccessfully");
@@ -358,6 +367,86 @@ public class TestNgClass4 extends library {
 		}
 		Assert.assertTrue(fileFound, "Downloaded File Not Found");
 		Obj.deleteOnExit();
+	}
+	
+	@Test(priority=13)
+	public void validateDataDriven() throws IOException{
+		System.out.println("inside validateDataDriven");
+		ExtTest = ExtReport.createTest(new Object() {
+		}.getClass().getEnclosingMethod().getName());
+		driver.navigate().to(propObj.getProperty("AutomationRegister"));
+		waitForPageToLoad();
+		//ReadTheExcel
+		try {
+			FileInputStream objFileInputStream = new FileInputStream (new File(System.getProperty("user.dir")+
+					"//src//test/resources//AutomationDemoSIte.xlsx"));
+			XSSFWorkbook objXSSFWorkBook = new XSSFWorkbook (objFileInputStream);
+			XSSFSheet objXSSFSheet =   objXSSFWorkBook.getSheet("TestData");
+			int RowCountExcel= objXSSFSheet.getLastRowNum();
+			System.out.println(RowCountExcel);
+			for (int rowNumber=1;rowNumber<=RowCountExcel;rowNumber++){
+				testdata=readExcelFile(objXSSFSheet,rowNumber);
+				/*System.out.println("---------------------------------");
+				System.out.println(testdata.get("RunMode"));
+				System.out.println(testdata.get("TestCaseName"));
+				System.out.println(testdata.get("FirstName"));
+				System.out.println(testdata.get("LastName"));
+				System.out.println(testdata.get("Address"));
+				System.out.println("---------------------------------");*/
+				
+				library.findElementByLocator(ObjectRepository.RegisterFirstName).clear();
+				library.findElementByLocator(ObjectRepository.RegisterFirstName).sendKeys(testdata.get("FirstName"));
+				library.findElementByLocator(ObjectRepository.RegisterLastNameName).clear();
+				library.findElementByLocator(ObjectRepository.RegisterLastNameName).sendKeys(testdata.get("LastName"));
+				library.findElementByLocator(ObjectRepository.RegisterAddress).clear();
+				library.findElementByLocator(ObjectRepository.RegisterAddress).sendKeys(testdata.get("Address"));
+				library.findElementByLocator(ObjectRepository.RegisterEmailAddress).clear();
+				library.findElementByLocator(ObjectRepository.RegisterEmailAddress).sendKeys(testdata.get("EmailAddress"));
+				library.findElementByLocator(ObjectRepository.RegisterPhone).clear();
+				library.findElementByLocator(ObjectRepository.RegisterPhone).sendKeys(testdata.get("PhoneNumber"));
+				
+				
+			}
+		
+			objXSSFWorkBook.close();
+			objFileInputStream.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public HashMap<String, String> readExcelFile(XSSFSheet objXSSFSheet, int rowNumber) {
+		DataFormatter Format = new DataFormatter();
+		testdata.put("RunMode", objXSSFSheet.getRow(rowNumber).getCell(0).getStringCellValue());
+		testdata.put("TestCaseName", objXSSFSheet.getRow(rowNumber).getCell(1).getStringCellValue());
+		testdata.put("FirstName", objXSSFSheet.getRow(rowNumber).getCell(2).getStringCellValue());
+		testdata.put("LastName", objXSSFSheet.getRow(rowNumber).getCell(3).getStringCellValue());
+		testdata.put("Address", objXSSFSheet.getRow(rowNumber).getCell(4).getStringCellValue());
+		testdata.put("EmailAddress", objXSSFSheet.getRow(rowNumber).getCell(5).getStringCellValue());
+
+		String PhoneNumber = Format.formatCellValue(objXSSFSheet.getRow(rowNumber).getCell(6));
+		testdata.put("PhoneNumber", PhoneNumber);
+
+		testdata.put("Gender", objXSSFSheet.getRow(rowNumber).getCell(7).getStringCellValue());
+		testdata.put("Hobbies", objXSSFSheet.getRow(rowNumber).getCell(8).getStringCellValue());
+		testdata.put("Languages", objXSSFSheet.getRow(rowNumber).getCell(9).getStringCellValue());
+		testdata.put("Skills", objXSSFSheet.getRow(rowNumber).getCell(10).getStringCellValue());
+		testdata.put("Country", objXSSFSheet.getRow(rowNumber).getCell(11).getStringCellValue());
+		testdata.put("SelectCountry", objXSSFSheet.getRow(rowNumber).getCell(12).getStringCellValue());
+
+		String Year = Format.formatCellValue(objXSSFSheet.getRow(rowNumber).getCell(13));
+		testdata.put("DOB_YY", Year);
+
+		testdata.put("DOB_MM", objXSSFSheet.getRow(rowNumber).getCell(14).getStringCellValue());
+
+		String Day = Format.formatCellValue(objXSSFSheet.getRow(rowNumber).getCell(15));
+		testdata.put("DOB_DD", Day);
+
+		testdata.put("Password", objXSSFSheet.getRow(rowNumber).getCell(16).getStringCellValue());
+		testdata.put("confirmPassword", objXSSFSheet.getRow(rowNumber).getCell(17).getStringCellValue());
+		return testdata;
 	}
 
 	@BeforeMethod

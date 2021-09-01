@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\raghu\AppData\Local\Temp\testng-eclipse-173453254\testng-customsuite.xml</span>
+                    <span>C:\Users\raghu\AppData\Local\Temp\testng-eclipse-274048466\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.TestNG.TestCases.TestNgClass4" hash-for-method="ValidateFileDownLoad">ValidateFileDownLoad</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.TestNG.TestCases.TestNgClass4" hash-for-method="validateDataDriven">validateDataDriven</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -125,9 +125,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ValidateFileDownLoad">
-                  </a> <!-- ValidateFileDownLoad -->
-                  <span class="method-name">ValidateFileDownLoad</span>
+                  <a name="validateDataDriven">
+                  </a> <!-- validateDataDriven -->
+                  <span class="method-name">validateDataDriven</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +135,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\raghu\AppData\Local\Temp\testng-eclipse-173453254\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\raghu\AppData\Local\Temp\testng-eclipse-274048466\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,7 +146,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;com.TestNG.TestCases.TestNgClass4&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;ValidateFileDownLoad&quot;/&gt;
+          &lt;include name=&quot;validateDataDriven&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.TestNG.TestCases.TestNgClass4 --&gt;
     &lt;/classes&gt;
@@ -190,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'ValidateFileDownLoad')
+data.setCell(0, 1, 'validateDataDriven')
 data.setCell(0, 2, 'com.TestNG.TestCases.TestNgClass4')
-data.setCell(0, 3, 287495);
+data.setCell(0, 3, 15801);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 minutes</span>
+              <span class="suite-total-time">Total running time: 15 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -212,7 +212,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">12 ignored methods</span>
+            <span class="header-content">13 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -220,11 +220,15 @@ return data;
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">ValidateEnterGMO_OnLineSuccessfully</span>
                 <br/>
+                <span class="ignored-method-name">HandlingFileUpload</span>
+                <br/>
+                <span class="ignored-method-name">HandlingMouseOpearationDragAndDrop</span>
+                <br/>
+                <span class="ignored-method-name">ValidateGMO_OnLineLoadedSuccessfully</span>
+                <br/>
                 <span class="ignored-method-name">HandlingWebTable</span>
                 <br/>
                 <span class="ignored-method-name">HandlingFrames</span>
-                <br/>
-                <span class="ignored-method-name">HandlingFileUpload</span>
                 <br/>
                 <span class="ignored-method-name">HandlingMouseActionsRightClick</span>
                 <br/>
@@ -232,13 +236,11 @@ return data;
                 <br/>
                 <span class="ignored-method-name">HandlingWindows</span>
                 <br/>
-                <span class="ignored-method-name">HandlingMouseOpearationDragAndDrop</span>
-                <br/>
                 <span class="ignored-method-name">ValidateOrderSunGlasses</span>
                 <br/>
-                <span class="ignored-method-name">ValidateGMO_OnLineLoadedSuccessfully</span>
-                <br/>
                 <span class="ignored-method-name">ValidatingAlerts</span>
+                <br/>
+                <span class="ignored-method-name">ValidateFileDownLoad</span>
                 <br/>
                 <span class="ignored-method-name">HandlingMouseOpeartionDoubleClick</span>
                 <br/>
@@ -259,31 +261,31 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">24 ms</span>
+                <span class="method-start">22 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">4891 ms</span>
+                <span class="method-start">4352 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">5210 ms</span>
+                <span class="method-start">4521 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ValidateFileDownLoad</span>
-                <span class="method-start">5211 ms</span>
+                <span class="method-name">validateDataDriven</span>
+                <span class="method-start">4521 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=ValidateFileDownLoad status=SUCCESS method=TestNgClass4.ValidateFileDownLoad()[pri:...)</span>
-                <span class="method-start">292743 ms</span>
+                <span class="method-name">afterMethod([TestResult name=validateDataDriven status=SUCCESS method=TestNgClass4.validateDataDriven()[pri:13, ...)</span>
+                <span class="method-start">20327 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">296767 ms</span>
+                <span class="method-start">20356 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">297421 ms</span>
+                <span class="method-start">20359 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

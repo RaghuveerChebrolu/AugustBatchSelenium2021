@@ -35,6 +35,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -291,6 +292,19 @@ public class library {
 			search=By.tagName(value);
 		}
 		return driver.findElements(search);
+	}
+	
+	public static void SelectValueFromDropDown(List<WebElement> AllDropDownItems, String DropDownValue){
+
+		for (int i=0;i<AllDropDownItems.size();i++){
+			String DropDownIndividualValue=AllDropDownItems.get(i).getText();
+			//Select obj= new Select(AllDropDownItems.get(i));
+			//obj.selectByVisibleText(DropDownValue);
+			if(DropDownIndividualValue.equals(DropDownValue)){
+				AllDropDownItems.get(i).click();
+			}
+		}
+		
 	}
 
 }

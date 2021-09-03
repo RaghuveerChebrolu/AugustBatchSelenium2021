@@ -31,14 +31,26 @@ public class ObjectRepository {
 		public static final String RegisterHobbiesHockey = constants.ID+"&"+"checkbox3";
 		public static final String RegisterLaunguages = constants.ID+"&"+"msdd";
 		public static final String RegisterSkills = constants.xpath+"&"+"//select[@type='text' and @id='Skills']";
+		public static final String Register_Skills_Label = constants.xpath+"&"+"//*[@id='Skills']/../../label";
+		
 		public static final String RegisterCountry = constants.ID+"&"+"countries";
 		public static final String RegisterSelect_Country = constants.xpath+"&"+"//span[@role='combobox']";
 		public static final String RegisterDOBYY = constants.ID+"&"+"yearbox";
+		public static final String Register_DOBYY_DropDownItems = constants.xpath+"&"+"//*[@id='yearbox']/option";
+		
 		public static final String RegisterDOBMM = constants.xpath+"&"+"//select[@placeholder='Month']";
+		public static final String Register_DOBMM_DropDownItems = constants.xpath+"&"+"//*[@placeholder='Month']/option";
+		
+		
 		public static final String RegisterDOBDD = constants.ID+"&"+"daybox";
+		public static final String Register_DOBDD_DropDownItems = constants.xpath+"&"+"//*[@placeholder='Day']/option";
+		
 		public static final String RegisterPWD = constants.ID+"&"+"firstpassword";
 		public static final String RegisterConfirmPWD = constants.ID+"&"+"secondpassword";
-	
+		public static final String Register_LaungauaesDropDownItems =  constants.xpath+"&"+"//div[@id='msdd']/following-sibling::div/ul/li";
+		public static final String Register_SkillsDropDownItems =  constants.xpath+"&"+"//select[@id='Skills']/option";
+		public static final String Register_CountryDropDownItems =  constants.xpath+"&"+"//select[@id='countries']/option";
+		public static final String Register_SelectCountry_TextBox =  constants.xpath+"&"+"//*[@type='search']";
 		
 		
 	}

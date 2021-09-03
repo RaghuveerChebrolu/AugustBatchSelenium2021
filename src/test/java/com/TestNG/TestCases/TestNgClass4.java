@@ -10,6 +10,7 @@ import com.utility.library;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -405,7 +406,70 @@ public class TestNgClass4 extends library {
 				library.findElementByLocator(ObjectRepository.RegisterPhone).clear();
 				library.findElementByLocator(ObjectRepository.RegisterPhone).sendKeys(testdata.get("PhoneNumber"));
 				
+				if(testdata.get("Gender").equals("Male")){
+					library.findElementByLocator(ObjectRepository.RegisterGenderMale).click();
+				}else if(testdata.get("Gender").equals("Female")){
+					library.findElementByLocator(ObjectRepository.RegisterGenderFemale).click();
+				}
 				
+				if(testdata.get("Hobbies").equals("Cricket")){
+					library.findElementByLocator(ObjectRepository.RegisterHobbiesCricket).click();
+				}else if(testdata.get("Hobbies").equals("Hockey")){
+					library.findElementByLocator(ObjectRepository.RegisterHobbiesHockey).click();
+				}else if(testdata.get("Hobbies").equals("Movies")){
+					library.findElementByLocator(ObjectRepository.RegisterHobbiesMovies).click();
+				}
+				if (rowNumber > 1) {
+					driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-close']")).click();
+				}
+				
+				WebElement Language = library.findElementByLocator(ObjectRepository.RegisterLaunguages);
+				Language.click();
+				List<WebElement> AllLanguages = library.findElementsByLocator(ObjectRepository.Register_LaungauaesDropDownItems);
+				library.SelectValueFromDropDown(AllLanguages, testdata.get("Languages"));
+				
+				library.findElementByLocator(ObjectRepository.Register_Skills_Label).click();
+				
+				WebElement Skills = library.findElementByLocator(ObjectRepository.RegisterSkills);
+				Skills.click();
+				List<WebElement> AllSkills = library.findElementsByLocator(ObjectRepository.Register_SkillsDropDownItems);
+				library.SelectValueFromDropDown(AllSkills, testdata.get("Skills"));
+				
+				WebElement Country = library.findElementByLocator(ObjectRepository.RegisterCountry);
+				Country.click();
+				List<WebElement> AllCountries = library.findElementsByLocator(ObjectRepository.Register_CountryDropDownItems);
+				library.SelectValueFromDropDown(AllSkills, testdata.get("Country"));
+				
+				WebElement SelectCountry = library.findElementByLocator(ObjectRepository.RegisterSelect_Country);
+				SelectCountry.click();
+				library.findElementByLocator(ObjectRepository.Register_SelectCountry_TextBox).sendKeys(testdata.get("SelectCountry"));
+				try {
+					Robot obj = new Robot();
+					obj.keyPress(KeyEvent.VK_ENTER);
+					obj.keyRelease(KeyEvent.VK_ENTER);
+				} catch (AWTException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				WebElement Year = library.findElementByLocator(ObjectRepository.RegisterDOBYY);
+				Year.click();
+				List<WebElement> AllYears = library.findElementsByLocator(ObjectRepository.Register_DOBYY_DropDownItems);
+				library.SelectValueFromDropDown(AllYears, testdata.get("DOB_YY"));
+
+				WebElement Month = library.findElementByLocator(ObjectRepository.RegisterDOBMM);
+				Month.click();
+				List<WebElement> AllMonths = library.findElementsByLocator(ObjectRepository.Register_DOBMM_DropDownItems);
+				library.SelectValueFromDropDown(AllMonths, testdata.get("DOB_MM"));
+
+				WebElement Day = library.findElementByLocator(ObjectRepository.RegisterDOBDD);
+				Day.click();
+				List<WebElement> AllDays = library.findElementsByLocator(ObjectRepository.Register_DOBDD_DropDownItems);
+				library.SelectValueFromDropDown(AllDays, testdata.get("DOB_DD"));
+
+				library.findElementByLocator(ObjectRepository.RegisterPWD).sendKeys(testdata.get("Password"));
+				library.findElementByLocator(ObjectRepository.RegisterConfirmPWD).sendKeys(testdata.get("confirmPassword"));
+
 			}
 		
 			objXSSFWorkBook.close();

@@ -26,6 +26,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +35,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.input.WindowsLineEndingInputStream;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
@@ -386,7 +388,9 @@ public class TestNgClass4 extends library {
 			int RowCountExcel= objXSSFSheet.getLastRowNum();
 			System.out.println(RowCountExcel);
 			for (int rowNumber=1;rowNumber<=RowCountExcel;rowNumber++){
+				
 				testdata=readExcelFile(objXSSFSheet,rowNumber);
+				if(testdata.get("RunMode").equals("Yes")){
 				/*System.out.println("---------------------------------");
 				System.out.println(testdata.get("RunMode"));
 				System.out.println(testdata.get("TestCaseName"));
@@ -470,6 +474,16 @@ public class TestNgClass4 extends library {
 				library.findElementByLocator(ObjectRepository.RegisterPWD).sendKeys(testdata.get("Password"));
 				library.findElementByLocator(ObjectRepository.RegisterConfirmPWD).sendKeys(testdata.get("confirmPassword"));
 
+				//validation will take place like assert condition
+				FileOutputStream ObjeFileOut = new FileOutputStream(
+						new File(System.getProperty("user.dir") + "//src//test//resources//AutomationDemoSite.xlsx"));
+
+				WriteTheResultToExcel(objXSSFWorkBook, rowNumber);
+				objXSSFWorkBook.write(ObjeFileOut);
+				ObjeFileOut.close();
+				}else{
+					System.out.println("RunMode is not marked as Yes . Hence Skipiing this Row/TestCase");
+				}
 			}
 		
 			objXSSFWorkBook.close();
@@ -480,7 +494,18 @@ public class TestNgClass4 extends library {
 		}
 		
 	}
+	public void WriteTheResultToExcel(XSSFWorkbook objworkbook, int rowNumber) {
 
+		XSSFSheet objSheet = objworkbook.getSheet("TestData");
+		XSSFCellStyle CellStyle = objworkbook.createCellStyle();
+		// CellStyle.setBorderBottom(XSSFCellStyle.BORDER_THIN);
+		System.out.println("Row Number in excel is :" + rowNumber);
+
+		objSheet.getRow(rowNumber).createCell(18).setCellValue("PASS");
+		objSheet.getRow(rowNumber).getCell(18).setCellStyle(CellStyle);
+
+	}
+	
 	public HashMap<String, String> readExcelFile(XSSFSheet objXSSFSheet, int rowNumber) {
 		DataFormatter Format = new DataFormatter();
 		testdata.put("RunMode", objXSSFSheet.getRow(rowNumber).getCell(0).getStringCellValue());

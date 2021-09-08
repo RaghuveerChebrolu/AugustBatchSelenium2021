@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="6" passed="3">
+<testng-results skipped="0" failed="0" ignored="13" total="14" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="73" started-at="2021-09-04T03:26:50Z" finished-at="2021-09-04T03:26:50Z">
+  <suite name="Default suite" duration-ms="22882" started-at="2021-09-05T05:11:52Z" finished-at="2021-09-05T05:12:15Z">
     <groups>
-      <group name="Regression">
-        <method signature="TestngGroups.testMethodFive()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodFive" class="com.TestNG.concepts.TestngGroups"/>
-        <method signature="TestngGroups.testMethodThree()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodThree" class="com.TestNG.concepts.TestngGroups"/>
-        <method signature="TestngGroups.testMethodTwo()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodTwo" class="com.TestNG.concepts.TestngGroups"/>
-      </group> <!-- Regression -->
-      <group name="sanity">
-        <method signature="TestngGroups.testMethodTwo()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodTwo" class="com.TestNG.concepts.TestngGroups"/>
-      </group> <!-- sanity -->
     </groups>
-    <test name="Test2" duration-ms="73" started-at="2021-09-04T03:26:50Z" finished-at="2021-09-04T03:26:50Z">
-      <class name="com.TestNG.concepts.TestngGroups">
-        <test-method status="PASS" signature="testMethodFive()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodFive" duration-ms="17" started-at="2021-09-04T03:26:50Z" finished-at="2021-09-04T03:26:50Z">
+    <test name="Default test" duration-ms="22882" started-at="2021-09-05T05:11:52Z" finished-at="2021-09-05T05:12:15Z">
+      <class name="com.TestNG.TestCases.TestNgClass4">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="beforeSuite" is-config="true" duration-ms="11" started-at="2021-09-05T05:11:52Z" finished-at="2021-09-05T05:11:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMethodFive -->
-        <test-method status="PASS" signature="testMethodThree()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodThree" duration-ms="2" started-at="2021-09-04T03:26:50Z" finished-at="2021-09-04T03:26:50Z">
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="beforeTest" is-config="true" duration-ms="4343" started-at="2021-09-05T05:11:52Z" finished-at="2021-09-05T05:11:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMethodThree -->
-        <test-method status="PASS" signature="testMethodTwo()[pri:0, instance:com.TestNG.concepts.TestngGroups@7cbd213e]" name="testMethodTwo" duration-ms="4" started-at="2021-09-04T03:26:50Z" finished-at="2021-09-04T03:26:50Z">
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="beforeClass" is-config="true" duration-ms="233" started-at="2021-09-05T05:11:57Z" finished-at="2021-09-05T05:11:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMethodTwo -->
-      </class> <!-- com.TestNG.concepts.TestngGroups -->
-    </test> <!-- Test2 -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="beforeMethod" is-config="true" duration-ms="1" started-at="2021-09-05T05:11:57Z" finished-at="2021-09-05T05:11:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="HandlingFileUpload()[pri:11, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="HandlingFileUpload" duration-ms="17538" started-at="2021-09-05T05:11:57Z" finished-at="2021-09-05T05:12:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HandlingFileUpload -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="afterMethod" is-config="true" duration-ms="41" started-at="2021-09-05T05:12:15Z" finished-at="2021-09-05T05:12:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=HandlingFileUpload status=SUCCESS method=TestNgClass4.HandlingFileUpload()[pri:11, instance:com.TestNG.TestCases.TestNgClass4@eb21112] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-09-05T05:12:15Z" finished-at="2021-09-05T05:12:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.TestNG.TestCases.TestNgClass4@eb21112]" name="afterTest" is-config="true" duration-ms="683" started-at="2021-09-05T05:12:15Z" finished-at="2021-09-05T05:12:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.TestNG.TestCases.TestNgClass4 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

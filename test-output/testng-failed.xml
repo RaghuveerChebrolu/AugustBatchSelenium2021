@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <parameter name="BrowserName" value="param-val-not-found"/>
-  <parameter name="UserName" value="param-val-not-found"/>
-  <parameter name="Passcode" value="param-val-not-found"/>
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.TestNG.concepts.TestngParamters">
+      <class name="com.TestNG.TestCases.TestNgClass4">
         <methods>
-          <include name="OpenBrowser" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+          <include name="afterMethod"/>
           <include name="beforeSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="ValidateFileDownLoad"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.TestNG.concepts.TestngParamters -->
+      </class> <!-- com.TestNG.TestCases.TestNgClass4 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
